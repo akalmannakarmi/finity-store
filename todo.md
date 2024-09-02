@@ -126,16 +126,14 @@
 #### User(Django Default)
 
 #### Items
-- Id
 - Name
-- Summary
+- Description
 - Details
 - Rarity
 - Type
 - Image
 
 #### Listing
-- Id
 - Type
 - Status
 - Price
@@ -145,21 +143,18 @@
 - SellerId
 - BuyerId
 
-#### Bids
-- Id
-- ItemId
-- UserId
+#### Bid
+- Listing
+- Bidder
 - Price
 - Time
 
 #### Wishlist
-- Id
-- UserId
-- ItemId
+- User
+- Item
 - Created
 
 #### Cart
-- Id
-- UserId
-- ListingId
+- User
+- Listing
 - Quantity

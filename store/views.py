@@ -24,4 +24,4 @@ def addToWishlist(request:HttpRequest,itemId:int):
 	return HttpResponse("Working On it!")
 
 def removeFromWishlist(request:HttpRequest,itemId:int):
-	return HttpRespons("Working On it!") 
+	return HttpResponse("Working On it!") 
