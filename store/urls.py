@@ -9,6 +9,7 @@ urlpatterns = [
 
 	path("addToCart/<int:productId>",views.addToCart,name="Add to Cart"),
 	path("removeFromCart/<int:productId>",views.removeFromCart,name="Remove From Cart"),
+	path("checkout",views.checkout,name="checkout"),
 	path("addToWishlist/<int:itemId>",views.addToWishlist,name="Add to Wishlist"),
 	path("removeFromWishlist/<int:itemId>",views.removeFromWishlist,name="Remove From Wishlist"),
 ]

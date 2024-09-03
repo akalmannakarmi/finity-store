@@ -20,6 +20,9 @@ def addToCart(request:HttpRequest,productId:int):
 def removeFromCart(request:HttpRequest,productId:int):
 	return HttpResponse("Working on it!")
 
+def checkout(request:HttpRequest):
+	return HttpResponse("Working on it!")
+
 def addToWishlist(request:HttpRequest,itemId:int):
 	return HttpResponse("Working on it!")
 
