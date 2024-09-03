@@ -4,15 +4,34 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>{% block title %} Title Here {% endblock %}</title>
+	<title>{% block title %} Insert Title {% endblock %}</title>
 
 	<link rel="stylesheet" href="/static/output.css">
 	{% block head %} {% endblock %}
 </head>
-<body>
-	{% block body %}
-	{% endblock %}
-</body>
+<body class="flex flex-col">
+	<div class="w-full">
+			{% block top %}  {% endblock %}
+	</div>
+	
+	<div class="flex w-full justify-between">
+			<div>
+					{% block left %}  {% endblock %}
+			</div>
+			<div class="flex-1">
+					{% block middle %}  {% endblock %}
+			</div>
+			<div>
+					{% block right %}  {% endblock %}
+			</div> 
+	</div>
+
+	<div class="w-full ">
+			{% block bottom %}  {% endblock %}
+	</div>
+
 	{% block foot %}
 	{% endblock %}
+</body>
+
 </html>
