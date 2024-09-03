@@ -2,7 +2,7 @@ from django.http import HttpRequest,HttpResponse
 from django.shortcuts import render
 
 def index(request:HttpRequest):
-	return HttpResponse("Working on it!")
+	return render(request,"index.html",{})
 
 def register(request:HttpRequest):
-	return HttpResponse("Working on it!")
+	return render(request,"registration/register.html",{})
