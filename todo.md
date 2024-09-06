@@ -1,8 +1,8 @@
 # Todo
 
 ## Features
-- [ ] Register
-- [ ] Login
+- [x] Register
+- [x] Login
 
 - [ ] List Items
 - [ ] Filter Items
