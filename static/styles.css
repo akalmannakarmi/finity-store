@@ -47,12 +47,40 @@
 .items .itemGrid img {
 	@apply rounded-md bg-gray-200 group-hover:opacity-75
 }
-.items .itemGrid .product {
+.items .itemGrid .item {
 	@apply flex justify-between
 }
-.items .itemGrid .product h3 {
+.items .itemGrid .item h3 {
 	@apply text-sm text-gray-700
 }
-.items .itemGrid .product p {
+.items .itemGrid .item p {
 	@apply text-sm font-medium text-gray-900
+}
+
+.product {
+	@apply bg-white grid grid-cols-1 lg:grid-cols-2 min-h-full
+}
+.product img {
+	border-radius: 5rem;
+}
+.product h2 {
+	@apply text-4xl
+}
+.product h3 {
+	@apply text-2xl text-gray-900
+}
+.product h4 {
+	@apply text-xl text-gray-900
+}
+.product p {
+	@apply text-gray-900 
+}
+.product label {
+	@apply block font-medium leading-6 text-gray-900
+}
+.product input {
+	@apply block w-1/2 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6
+}
+.product button {
+	@apply flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2
 }
