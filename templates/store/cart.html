@@ -1,6 +1,9 @@
-{% extends 'index.html' %}
-
+{% extends 'base.html' %}
 {% block title %} Cart {% endblock %}
+
+{% block top %}
+{% include 'nav.html' with page="cart" %}
+{% endblock %}
 
 {% block middle %}
 <h1> Cart Page</h1>

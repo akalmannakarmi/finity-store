@@ -2,3 +2,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.navbar{
+	@apply bg-gray-800 flex items-center justify-around
+}
+.navbar .navItem{
+	@apply rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white
+}
+.navbar .navItemSelected {
+	@apply rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white
+}
+.navbar .first {
+	@apply flex flex-shrink-0 items-center
+}

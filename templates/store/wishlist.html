@@ -1,6 +1,10 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 
 {% block title %} Wishlist {% endblock %}
+
+{% block top %}
+{% include 'nav.html' with page="wishlist" %}
+{% endblock %}
 
 {% block middle %}
 <h1>Wishlist Page</h1>

@@ -1,6 +1,10 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 
 {% block title %} Product {% endblock %}
+
+{% block top %}
+{% include 'nav.html' with page="none" %}
+{% endblock %}
 
 {% block middle %}
 <h1>Product Page</h1>

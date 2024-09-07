@@ -1,6 +1,10 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 
 {% block title %} Item List {% endblock %}
+
+{% block top %}
+{% include 'nav.html' with page="itemlist" %}
+{% endblock %}
 
 {% block middle %}
 <h1>Item List Page</h1>
