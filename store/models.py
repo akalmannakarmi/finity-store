@@ -41,10 +41,11 @@ class Listing(models.Model):
 
 	Type = models.PositiveSmallIntegerField(choices=TYPE_CHOICES)
 	Status = models.PositiveSmallIntegerField(choices=STATUS_CHOICES)
+	Item = models.ForeignKey(Item,related_name="Listings",null=True,on_delete=models.SET_NULL)
 	Price = models.DecimalField(max_digits=9,decimal_places=4)
 	Stock = models.PositiveIntegerField()
 	Listing = models.DateTimeField()
-	Expiration = models.TimeField()
+	Expiration = models.DateTimeField()
 	Seller = models.ForeignKey(User,related_name="Listings",null=True,on_delete=models.SET_NULL)
 	Buyer = models.ForeignKey(User,related_name="Purchases",null=True,on_delete=models.SET_NULL)
 

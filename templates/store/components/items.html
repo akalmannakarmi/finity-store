@@ -52,4 +52,9 @@
         </div>
       </a>
     </div>
+		{% for item in items %}
+		{{item}}
+		{% empty %}
+			No Items
+		{% endfor %}
 </div>
