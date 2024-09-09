@@ -12,38 +12,40 @@
 	<img src="{% static 'img/sword1.jpeg' %}" class="p-4 md:p-8 lg:p-12">
 
 	<div class="py-4 md:py-8 lg:py-12">
-		<h2 class="py-2">Product Name</h2>
-		<h3>Price/Current Bid : $192</h3>
-		<h4>Ends: 13hr</h4>
-		<h4>Type: Sword</h4>
-		<h4>Rarity: Epic</h4>
-		<h4>Quantity: 100</h4>
-		<p class="py-2">This is the desciption. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, nostrum eveniet? Illum numquam provident quod, inventore eligendi architecto pariatur nulla quo dolorem nihil amet minima, aliquam veniam exercitationem impedit sapiente.</p>
+		<h2 class="py-2">{{product.Item.Name}}</h2>
+		<h3>Price/Current Bid : ${{product.Price}}</h3>
+		<h4>Ends: {{product.Expiration}}</h4>
+		<h4>Type: {{product.Item.get_Type_display}}</h4>
+		<h4>Rarity: {{product.Item.get_Rarity_display}}</h4>
+		<h4>Quantity: {{product.Stock}}</h4>
+		<p class="py-2">{{product.Item.Desciption}}</p>
 		
-		<form class="space-y-4 py-3" method="post">
-			{% csrf_token %}
-			<label for="bid">Place Bid</label>
-			<input type="number" name="bid" min="193" id="bid" value="193">
-			<button type="submit">Bid</button>
-		</form>
-		
-		<form class="space-y-4 py-3" method="post">
-			{% csrf_token %}
+		{% if product.Type == 1 %}
+			<form class="space-y-4 py-3" method="post">
+				{% csrf_token %}
+				<label for="bid">Place Bid</label>
+				<input type="number" name="bid" min="193" id="bid" value="193">
+				<button type="submit">Bid</button>
+			</form>
+		{% else %}
+			<form class="space-y-4 py-3" method="post">
+				{% csrf_token %}
+				
+				<label for="quantity">Quantity</label>
+				<input type="number" min="1" id="quantity" name="quantity" value="1">
 			
-			<label for="quantity">Quantity</label>
-			<input type="number" min="1" id="quantity" name="quantity" value="1">
-		
-			<div class="flex space-x-6">
-				<button type="submit" name="action" value="cart" >Add to Cart</button>
-				<button type="submit" name="action" value="buy">Buy</button>
-			</div>
-		</form>
+				<div class="flex space-x-6">
+					<button type="submit" name="action" value="cart" >Add to Cart</button>
+					<button type="submit" name="action" value="buy">Buy</button>
+				</div>
+			</form>
+		{% endif %}
 		
 	</div>
 
 	<div class="p-4 md:p-8 lg:p-12 lg:col-span-2">
 		<h3 class="text-3xl tracking-tight text-gray-900">Details</h3>
-		<p class="text-gray-900 py-6">This is the Details. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, adipisci consequatur iusto fuga suscipit minus at nemo voluptatibus, cupiditate impedit veritatis odio eos necessitatibus nihil amet? A accusamus culpa libero! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae beatae vel, voluptatum officiis esse at ut reprehenderit amet quas labore explicabo ullam eum harum, quo suscipit eos vitae porro? Deleniti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta voluptates, culpa odit dolorum itaque labore ad excepturi est aliquid suscipit explicabo deleniti tenetur iste repellat quo facere dignissimos omnis earum et beatae rerum. Obcaecati voluptates quas cum eos, laborum aspernatur nam vitae velit! Totam dolores odio iste culpa eveniet consequatur!</p>
+		<p class="text-gray-900 py-6">{{product.Item.Details}}</p>
 	</div>
 </div>
 

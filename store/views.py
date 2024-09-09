@@ -1,12 +1,11 @@
 from collections.abc import Sequence
 from typing import Any
 from django.db.models.query import QuerySet
-from django.db.models import F, ExpressionWrapper, DateTimeField, DurationField
 
 from django.http import HttpRequest,HttpResponse
 from django.shortcuts import render
 from django.utils import timezone
-from django.views.generic import ListView
+from django.views.generic import DetailView,ListView
 from . import models
 
 
@@ -54,8 +53,10 @@ class ItemList(ListView):
 			return ["-Item__Rarity",]
 		return []
 
-def product(request:HttpRequest,productId:int):
-	return render(request,"store/product.html",{})
+class Product(DetailView):
+	model=models.Listing
+	template_name='store/product.html'
+	context_object_name='product'
 
 def cart(request:HttpRequest):
 	return render(request,"store/cart.html",{})
