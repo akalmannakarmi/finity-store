@@ -24,7 +24,7 @@ class Item(models.Model):
 	Details = models.TextField(null=True)
 	Rarity = models.PositiveSmallIntegerField(choices=RARITY_CHOICES)
 	Type = models.PositiveSmallIntegerField(choices=TYPE_CHOICES)
-	Image = models.ImageField(upload_to="images/items")
+	Image = models.ImageField(upload_to="static/items")
 
 
 class Listing(models.Model):

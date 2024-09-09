@@ -14,7 +14,7 @@ class ItemList(ListView):
 	ordering = None
 	paginate_by = 50
 	template_name = 'store/itemList.html'
-	context_object_name = 'items'
+	context_object_name = 'products'
 	
 	def get_queryset(self) -> QuerySet[Any]:
 		now = timezone.now()
@@ -23,10 +23,10 @@ class ItemList(ListView):
 			Status=0,
 			Item__isnull=False,
 			Stock__gt=0,
-			Item__Type__in=self.request.GET.getlist("type"),
-			Item__Rarity__in=self.request.GET.getlist("rarity"),
-			Type=self.request.GET.get("listing"),
-			Expiration__gt=now 
+			# Item__Type__in=self.request.GET.getlist("type"),
+			# Item__Rarity__in=self.request.GET.getlist("rarity"),
+			# Type=self.request.GET.get("listing"),
+			# Expiration__gt=now 
 		)
 
 		ordering = self.get_ordering()

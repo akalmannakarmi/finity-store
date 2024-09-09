@@ -51,10 +51,16 @@
           <p>$35</p>
         </div>
       </a>
+			{% for product in products %}
+				<a class="group" href="{% url 'store:Product' product.id %}">
+					<img src="{{product.Item.Image.url}}">
+					<div class="item mt-4">
+						<h3>{{product.Item.Name}}</h3>
+						<p>${{product.Price}}</p>
+					</div>
+				</a>
+			{% empty %}
+				<h3>No Items</h3>
+			{% endfor %}
     </div>
-		{% for item in items %}
-		{{item}}
-		{% empty %}
-			No Items
-		{% endfor %}
 </div>
