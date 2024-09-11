@@ -8,95 +8,96 @@
 {% load static %}
 
 {% block middle %}
-<div class="p-2 md:p-4 lg:p-8 min-h-full bg-sky-100">
-	<h1 class="mb-10 text-center text-3xl font-bold">Cart Items</h1>
-	<div class="flex flex-col items-center gap-4">
+<div class="cartItems p-2 md:p-4 lg:p-8 min-h-full">
+	<h2 class="mb-10">Cart Items</h2>
+	<div class="items gap-4">
 
-		<div class="rounded-lg bg-white shadow-md flex flex-wrap lg:flex-nowrap p-2 md:p-4 lg:p-8 space-x-4 space-y-4 md:w-3/4">
-			<img alt="product-image" class="flex-none rounded-lg lg:w-1/4 h-auto object-contain"  src="{% static 'img/sword1.jpeg' %}"/>
-			<div class="flex-auto flex justify-between">
-				<div class="flex flex-col flex-wrap">
-					<h2 class="text-lg font-bold text-gray-900">Sword1</h2>
+		<div class="item p-2 md:p-4 lg:p-8 gap-4 md:w-3/4">
+			<img alt="product-image" class="lg:w-1/4"  src="{% static 'img/sword1.jpeg' %}"/>
+			<div class="infoBox">
+				<div class="info">
+					<h3>Sword1</h3>
 					<h4>Price: $213</h4>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 				</div>
 				
-				<div class="flex items-start justify-end border-gray-100">
-					<span class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
-					<input class="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value="2" min="1" />
-					<span class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"> + </span>
+				<div class="count">
+					<span class="left"> - </span>
+					<input class="h-8 w-8" type="number" value="2" min="1" />
+					<span class="right"> + </span>
 				</div>
 			</div>
 		</div>
 
-		<div class="rounded-lg bg-white shadow-md flex flex-wrap lg:flex-nowrap p-2 md:p-4 lg:p-8 space-x-4 space-y-4 md:w-3/4">
-			<img alt="product-image" class="flex-none rounded-lg lg:w-1/4 h-auto object-contain"  src="{% static 'img/sword2.jpeg' %}"/>
-			<div class="flex-auto flex justify-between">
-				<div class="flex flex-col flex-wrap">
-					<h2 class="text-lg font-bold text-gray-900">Sword2</h2>
+		<div class="item p-2 md:p-4 lg:p-8 gap-4 md:w-3/4">
+			<img alt="product-image" class="lg:w-1/4"  src="{% static 'img/sword2.jpeg' %}"/>
+			<div class="infoBox">
+				<div class="info">
+					<h3>Sword2</h3>
 					<h4>Price: $213</h4>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 				</div>
 				
-				<div class="flex items-start justify-end border-gray-100">
-					<span class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
-					<input class="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value="2" min="1" />
-					<span class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"> + </span>
+				<div class="count">
+					<span class="left"> - </span>
+					<input class="h-8 w-8" type="number" value="2" min="1" />
+					<span class="right"> + </span>
 				</div>
 			</div>
 		</div>
 
-		<div class="rounded-lg bg-white shadow-md flex flex-wrap lg:flex-nowrap p-2 md:p-4 lg:p-8 space-x-4 space-y-4 md:w-3/4">
-			<img alt="product-image" class="flex-none rounded-lg lg:w-1/4 h-auto object-contain"  src="{% static 'img/sword3.jpeg' %}"/>
-			<div class="flex-auto flex justify-between">
-				<div class="flex flex-col flex-wrap">
-					<h2 class="text-lg font-bold text-gray-900">Sword3</h2>
+		<div class="item p-2 md:p-4 lg:p-8 gap-4 md:w-3/4">
+			<img alt="product-image" class="lg:w-1/4"  src="{% static 'img/sword3.jpeg' %}"/>
+			<div class="infoBox">
+				<div class="info">
+					<h3>Sword3</h3>
 					<h4>Price: $213</h4>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 				</div>
 				
-				<div class="flex items-start justify-end border-gray-100">
-					<span class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
-					<input class="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value="2" min="1" />
-					<span class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"> + </span>
+				<div class="count">
+					<span class="left"> - </span>
+					<input class="h-8 w-8" type="number" value="2" min="1" />
+					<span class="right"> + </span>
 				</div>
 			</div>
 		</div>
+
 	</div>
 </div>
 {% endblock %}
 
 {% block right %}
-<div class="p-2 md:p-4 lg:p-8 min-h-full sm:w-full bg-violet-100">
-	<h2 class="text-2xl font-bold">Cart List</h2>
-	<div class="grid grid-cols-3 gap-4 py-4 border-b-2">
-		<h4 class="text-lg font-bold text-gray-700">Item</h4>
-		<h4 class="text-lg font-bold text-gray-700">Quantity</h4>
-		<h4 class="text-lg font-bold text-gray-700">Price</h4>
-		<p class="text-gray-700">Shipping</p>
-		<p class="text-gray-700">1</p>
-		<p class="text-gray-700">$4.99</p>
-		<p class="text-gray-700">Dipping</p>
-		<p class="text-gray-700">2</p>
-		<p class="text-gray-700">$4.99</p>
-		<p class="text-gray-700">Thinking</p>
-		<p class="text-gray-700">412</p>
-		<p class="text-gray-700">$4.99</p>
-		<p class="text-gray-700">Walking Park</p>
-		<p class="text-gray-700">1</p>
-		<p class="text-gray-700">$4.99</p>
+<div class="cartList p-2 md:p-4 lg:p-8 min-h-full">
+	<h2>Cart List</h2>
+	<div class="list gap-4 py-4 border-b-2">
+		<h4>Item</h4>
+		<h4>Quantity</h4>
+		<h4>Price</h4>
+		<p>Shipping</p>
+		<p>1</p>
+		<p>$4.99</p>
+		<p>Dipping</p>
+		<p>2</p>
+		<p>$4.99</p>
+		<p>Thinking</p>
+		<p>412</p>
+		<p>$4.99</p>
+		<p>Walking Park</p>
+		<p>1</p>
+		<p>$4.99</p>
 	</div>
 
-	<div class="grid grid-cols-2 gap-4 py-4 border-b-2">
-		<p class="text-lg font-bold">Total:</p>
-		<p class="text-lg font-bold">$134.98 USD</p>
+	<div class="list gap-4 py-4 border-b-2">
+		<h4>Total:</h4>
+		<h4>$134.98 USD</h4>
 	</div>
-	<button class="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">Check out</button>
+	<button class="mt-6 w-full py-1.5">Check out</button>
 </div>
 {% endblock %}
