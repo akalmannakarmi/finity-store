@@ -1356,6 +1356,87 @@ video {
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
 
+.wishList {
+  --tw-bg-opacity: 1;
+  background-color: rgb(224 242 254 / var(--tw-bg-opacity));
+}
+
+.wishList h2 {
+  text-align: center;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+}
+
+.wishList h3 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity));
+}
+
+.wishList .items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wishList .items .item {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+@media (min-width: 1024px) {
+  .wishList .items .item {
+    flex-wrap: nowrap;
+  }
+}
+
+.wishList .items .item img {
+  flex: none;
+  border-radius: 0.5rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.wishList .items .item>div {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: space-between;
+}
+
+.wishList .items .item .infoBox .info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.wishList .items .item .infoBox .control {
+  display: flex;
+  align-items: flex-start;
+}
+
+.wishList .items .item .infoBox .control .remove {
+  border-radius: 0.375rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+  font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(239 246 255 / var(--tw-text-opacity));
+}
+
+.wishList .items .item .infoBox .control .remove:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+}
+
 .placeholder\:text-gray-400::-moz-placeholder {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));

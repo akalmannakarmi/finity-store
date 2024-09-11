@@ -6,6 +6,62 @@
 {% include 'nav.html' with page="wishlist" %}
 {% endblock %}
 
+{% load static %}
+
 {% block middle %}
-<h1>Wishlist Page</h1>
+<div class="wishList p-2 md:p-4 lg:p-8 min-h-full">
+	<h2 class="mb-10">Wish List</h2>
+	<div class="items gap-4">
+
+		<div class="item p-2 md:p-4 lg:p-8 gap-4 md:w-3/4">
+			<img alt="product-image" class="lg:w-1/4"  src="{% static 'img/sword1.jpeg' %}"/>
+			<div class="infoBox">
+				<div class="info">
+					<h3>Sword1</h3>
+					<h4>Price: $213</h4>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+				</div>
+				<div class="control">
+					<button class="remove p-2"> remove </button>
+				</div>
+			</div>
+		</div>
+
+		<div class="item p-2 md:p-4 lg:p-8 gap-4 md:w-3/4">
+			<img alt="product-image" class="lg:w-1/4"  src="{% static 'img/sword2.jpeg' %}"/>
+			<div class="infoBox">
+				<div class="info">
+					<h3>Sword1</h3>
+					<h4>Price: $213</h4>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+				</div>
+				<div class="control">
+					<button class="remove p-2"> remove </button>
+				</div>
+			</div>
+		</div>
+
+		<div class="item p-2 md:p-4 lg:p-8 gap-4 md:w-3/4">
+			<img alt="product-image" class="lg:w-1/4"  src="{% static 'img/sword3.jpeg' %}"/>
+			<div class="infoBox">
+				<div class="info">
+					<h3>Sword1</h3>
+					<h4>Price: $213</h4>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+				</div>
+				<div class="control">
+					<button class="remove p-2"> remove </button>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</div>
 {% endblock %}

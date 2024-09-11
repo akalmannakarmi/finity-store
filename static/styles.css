@@ -140,3 +140,35 @@
 .cartList button {
 	@apply rounded-md bg-blue-500 font-medium text-blue-50 hover:bg-blue-600
 }
+
+
+.wishList {
+	@apply  bg-sky-100
+}
+.wishList h2 {
+	@apply text-center text-3xl font-bold
+}
+.wishList h3 {
+	@apply text-lg font-bold text-gray-900
+}
+.wishList .items{
+	@apply flex flex-col items-center
+}
+.wishList .items .item{
+	@apply rounded-lg bg-white shadow-md flex flex-wrap lg:flex-nowrap
+}
+.wishList .items .item img{
+	@apply flex-none rounded-lg object-contain
+}
+.wishList .items .item>div{
+	@apply flex-auto flex justify-between
+}
+.wishList .items .item .infoBox .info{
+	@apply flex flex-col flex-wrap
+}
+.wishList .items .item .infoBox .control{
+	@apply flex items-start
+}
+.wishList .items .item .infoBox .control .remove{
+	@apply rounded-md bg-blue-500 font-medium text-blue-50 hover:bg-blue-600
+}
