@@ -9,11 +9,14 @@
 {% block left %}{% endblock %}
 
 {% block middle %}
-<h1>Index Page</h1>
+{% include 'components/hero.html'%}
+{% include 'components/main.html'%}
 {% endblock %}
 
 
 {% block right %}{% endblock %}
 
 
-{% block bottom %}{% endblock %}
+{% block bottom %}
+{% include 'components/footer.html'%}
+{% endblock %}
