@@ -189,3 +189,61 @@
 .hero button {
 	@apply rounded-md bg-indigo-600 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600
 }
+
+.main {
+	@apply bg-brown-200
+}
+.main header {
+	@apply flex flex-col items-center
+}
+.main header h2{
+	@apply text-lg md:text-3xl font-bold
+}
+.main header .featured{
+	@apply grid grid-cols-3 
+}
+.main header .featured .group{
+	@apply rounded-lg bg-white shadow-md
+}
+.main header .featured .group img{
+	@apply rounded-lg
+}
+.main header .featured .group .item{
+	@apply flex justify-between
+}
+.main main {
+	@apply flex flex-col items-center border-t border-gray-300
+}
+.main main h2{
+	@apply text-lg md:text-3xl font-bold
+}
+.main main .newest{
+	@apply grid grid-cols-3 
+}
+.main main .newest .group{
+	@apply rounded-lg bg-white shadow-md
+}
+.main main .newest .group img{
+	@apply rounded-lg
+}
+.main main .newest .group .item{
+	@apply flex justify-between
+}
+.main footer {
+	@apply flex flex-col items-center border-t border-gray-300
+}
+.main footer h2{
+	@apply text-lg md:text-3xl font-bold
+}
+.main footer .ending{
+	@apply grid grid-cols-3 
+}
+.main footer .ending .group{
+	@apply rounded-lg bg-white shadow-md
+}
+.main footer .ending .group img{
+	@apply rounded-lg
+}
+.main footer .ending .group .item{
+	@apply flex justify-between
+}

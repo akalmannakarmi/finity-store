@@ -1,11 +1,89 @@
-<div class="main">
-	<header>
+{% load static %}
 
+<div class="main p-2 md:p-4 lg:p-8">
+	
+	<header class="py-6">
+		<h2>Featured</h2>
+		<div class="featured gap-6 p-8" id="items">
+      <a class="group p-2 md:p-4 lg:p-8" href="{% url 'store:Product' 1 %}">
+				<img src="{% static 'img/sword1.jpeg' %}">
+        <div class="item mt-4">
+					<h3>Basic Tee</h3>
+          <p>$35</p>
+        </div>
+      </a>
+
+      <a class="group p-2 md:p-4 lg:p-8" href="{% url 'store:Product' 2 %}">
+				<img src="{% static 'img/sword2.jpeg' %}">
+        <div class="item mt-4">
+					<h3>Basic Tee</h3>
+          <p>$35</p>
+        </div>
+      </a>
+
+      <a class="group p-2 md:p-4 lg:p-8" href="{% url 'store:Product' 3 %}">
+				<img src="{% static 'img/sword3.jpeg' %}">
+        <div class="item mt-4">
+					<h3>Basic Tee</h3>
+          <p>$35</p>
+        </div>
+      </a>
+    </div>
 	</header>
-	<main>
+	<main class="py-6">
+		<h2>Newest</h2>
+		<div class="newest gap-6 p-8" id="items">
+      <a class="group p-2 md:p-4 lg:p-8" href="{% url 'store:Product' 1 %}">
+				<img src="{% static 'img/sword1.jpeg' %}">
+        <div class="item mt-4">
+					<h3>Basic Tee</h3>
+          <p>$35</p>
+        </div>
+      </a>
 
+      <a class="group p-2 md:p-4 lg:p-8" href="{% url 'store:Product' 2 %}">
+				<img src="{% static 'img/sword2.jpeg' %}">
+        <div class="item mt-4">
+					<h3>Basic Tee</h3>
+          <p>$35</p>
+        </div>
+      </a>
+
+      <a class="group p-2 md:p-4 lg:p-8" href="{% url 'store:Product' 3 %}">
+				<img src="{% static 'img/sword3.jpeg' %}">
+        <div class="item mt-4">
+					<h3>Basic Tee</h3>
+          <p>$35</p>
+        </div>
+      </a>
+    </div>
 	</main>
-	<footer>
+	<footer class="py-6">
+		<h2>Ending Soon</h2>
+		<div class="ending gap-6 p-8" id="items">
+      <a class="group p-2 md:p-4 lg:p-8" href="{% url 'store:Product' 1 %}">
+				<img src="{% static 'img/sword1.jpeg' %}">
+        <div class="item mt-4">
+					<h3>Basic Tee</h3>
+          <p>$35</p>
+        </div>
+      </a>
 
+      <a class="group p-2 md:p-4 lg:p-8" href="{% url 'store:Product' 2 %}">
+				<img src="{% static 'img/sword2.jpeg' %}">
+        <div class="item mt-4">
+					<h3>Basic Tee</h3>
+          <p>$35</p>
+        </div>
+      </a>
+
+      <a class="group p-2 md:p-4 lg:p-8" href="{% url 'store:Product' 3 %}">
+				<img src="{% static 'img/sword3.jpeg' %}">
+        <div class="item mt-4">
+					<h3>Basic Tee</h3>
+          <p>$35</p>
+        </div>
+      </a>
+    </div>
 	</footer>
 </div>
