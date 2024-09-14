@@ -36,8 +36,8 @@
 				<input type="number" min="1" id="quantity" name="quantity" value="1">
 			
 				<div class="flex space-x-6">
-					<button type="submit" name="action" value="cart" >Add to Cart</button>
 					<button type="submit" name="action" value="buy">Buy</button>
+					<button hx-post="{% url 'store:Add to Cart' product.id %}" hx-trigger="click"  >Add to Cart</button>
 					<button hx-post="{% url 'store:Add to Wishlist' product.Item.id %}" hx-trigger="click" >Add to wishlist</button>
 				</div>
 			</form>

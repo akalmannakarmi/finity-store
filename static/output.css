@@ -773,10 +773,6 @@ video {
   padding: 2rem;
 }
 
-.p-6 {
-  padding: 1.5rem;
-}
-
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1096,7 +1092,6 @@ video {
 
 .product {
   display: grid;
-  min-height: 100%;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));

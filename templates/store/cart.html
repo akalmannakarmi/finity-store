@@ -11,64 +11,26 @@
 <div class="cartItems p-2 md:p-4 lg:p-8 min-h-full">
 	<h2 class="mb-10">Cart Items</h2>
 	<div class="items gap-4">
-
+		{% for cart in carts %}
 		<div class="item p-2 md:p-4 lg:p-8 gap-4 md:w-3/4">
-			<img alt="product-image" class="lg:w-1/4"  src="{% static 'img/sword1.jpeg' %}"/>
+			<img alt="product-image" class="lg:w-1/4"  src="{{cart.Listing.Item.Image.url}}"/>
 			<div class="infoBox">
 				<div class="info">
-					<h3>Sword1</h3>
-					<h4>Price: $213</h4>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+					<h3>{{cart.Listing.Item.Name}}</h3>
+					<h4>Price: ${{cart.Listing.Price}}</h4>
+					<h4>Type: {{cart.Listing.Item.get_Type_display}}</h4>
+					<h4>Rarity: {{cart.Listing.Item.get_Rarity_display}}</h4>
+					<p>{{cart.Listing.Item.Description|slice:":100"}}{% if cart.Listing.Item.Description|length > 100 %}...{% endif %}</p>
 				</div>
 				
 				<div class="count">
-					<span class="left"> - </span>
-					<input class="h-8 w-8" type="number" value="2" min="1" />
-					<span class="right"> + </span>
+					<span class="left" hx-post="{% url 'store:Decrement Cart' cart.id %}" hx-trigger="click" hx-target="#quantity-{{ cart.id }}" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'> - </span>
+					<p id="quantity-{{ cart.id }}" class="px-2">{{cart.Quantity}}</p>
+					<span class="right" hx-post="{% url 'store:Increment Cart' cart.id %}" hx-trigger="click" hx-target="#quantity-{{ cart.id }}" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'> + </span>
 				</div>
 			</div>
 		</div>
-
-		<div class="item p-2 md:p-4 lg:p-8 gap-4 md:w-3/4">
-			<img alt="product-image" class="lg:w-1/4"  src="{% static 'img/sword2.jpeg' %}"/>
-			<div class="infoBox">
-				<div class="info">
-					<h3>Sword2</h3>
-					<h4>Price: $213</h4>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-				</div>
-				
-				<div class="count">
-					<span class="left"> - </span>
-					<input class="h-8 w-8" type="number" value="2" min="1" />
-					<span class="right"> + </span>
-				</div>
-			</div>
-		</div>
-
-		<div class="item p-2 md:p-4 lg:p-8 gap-4 md:w-3/4">
-			<img alt="product-image" class="lg:w-1/4"  src="{% static 'img/sword3.jpeg' %}"/>
-			<div class="infoBox">
-				<div class="info">
-					<h3>Sword3</h3>
-					<h4>Price: $213</h4>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-				</div>
-				
-				<div class="count">
-					<span class="left"> - </span>
-					<input class="h-8 w-8" type="number" value="2" min="1" />
-					<span class="right"> + </span>
-				</div>
-			</div>
-		</div>
-
+		{% endfor %}
 	</div>
 </div>
 {% endblock %}
@@ -80,24 +42,26 @@
 		<h4>Item</h4>
 		<h4>Quantity</h4>
 		<h4>Price</h4>
-		<p>Shipping</p>
-		<p>1</p>
-		<p>$4.99</p>
-		<p>Dipping</p>
-		<p>2</p>
-		<p>$4.99</p>
-		<p>Thinking</p>
-		<p>412</p>
-		<p>$4.99</p>
-		<p>Walking Park</p>
-		<p>1</p>
-		<p>$4.99</p>
+		{% for cart in carts %}
+			<p>{{cart.Listing.Item.Name}}</p>
+			<p>{{cart.Quantity}}</p>
+			<p>${{cart.Listing.Price}}</p>
+		{% endfor %}
 	</div>
 
 	<div class="list gap-4 py-4 border-b-2">
 		<h4>Total:</h4>
-		<h4>$134.98 USD</h4>
+		<h4>${{totalPrice}} USD</h4>
 	</div>
 	<button class="mt-6 w-full py-1.5">Check out</button>
 </div>
+{% endblock %}
+
+{% block foot %}
+<script>
+	document.body.addEventListener('htmx:afterRequest', function(event) {
+			// Reload the page after the HTMX request is complete
+			window.location.reload();
+	});
+</script>
 {% endblock %}

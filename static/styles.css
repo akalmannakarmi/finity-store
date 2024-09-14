@@ -58,7 +58,7 @@
 }
 
 .product {
-	@apply bg-white grid grid-cols-1 lg:grid-cols-2 min-h-full
+	@apply bg-white grid grid-cols-1 lg:grid-cols-2
 }
 .product img {
 	border-radius: 5rem;
