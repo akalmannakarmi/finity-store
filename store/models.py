@@ -60,7 +60,7 @@ class Bid(models.Model):
 class Wishlist(models.Model):
 	User = models.ForeignKey(User,related_name="Wishlist",on_delete=models.CASCADE)
 	Item = models.ForeignKey(Item,related_name="wishlist",on_delete=models.CASCADE)
-	Created = models.DateTimeField()
+	Created = models.DateTimeField(auto_now_add=True)
 
 class Cart(models.Model):
 	User = models.ForeignKey(User,related_name="Cart",on_delete=models.CASCADE)

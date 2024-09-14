@@ -3,9 +3,9 @@ from typing import Any
 from django.db.models.query import QuerySet
 
 from django.http import HttpRequest,HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404,redirect
 from django.utils import timezone
-from django.views.generic import DetailView,ListView
+from django.views.generic import DetailView,ListView,DeleteView,CreateView,View
 from . import models
 
 
@@ -35,7 +35,6 @@ class ItemList(ListView):
 				ordering = (ordering,)
 			queryset = queryset.order_by(*ordering)
 		
-		print(querySet)
 		return querySet
 	
 	def get_ordering(self) -> Sequence[str]:
@@ -61,8 +60,36 @@ class Product(DetailView):
 def cart(request:HttpRequest):
 	return render(request,"store/cart.html",{})
 
-def wishlist(request:HttpRequest):
-	return render(request,"store/wishlist.html",{})
+class Wishlist(ListView):
+	model=models.Wishlist
+	template_name='store/wishlist.html'
+	context_object_name='wishlist'
+
+	def get_queryset(self) -> QuerySet[Any]:
+		querySet = self.model.objects.filter(User=self.request.user)
+
+		ordering = self.get_ordering()
+		if ordering:
+			if isinstance(ordering, str):
+				ordering = (ordering,)
+			queryset = queryset.order_by(*ordering)
+		return querySet
+
+class AddToWishList(View):
+	def post(self,request:HttpRequest,itemId):
+		wish,created = models.Wishlist.objects.get_or_create(
+			User=request.user,
+			Item=get_object_or_404(models.Item),
+		)
+		if created:
+			return HttpResponse("Added to Wishlist")
+		return HttpResponse("Already in Wishlist")
+
+class RemoveFromWishList(View):
+	def post(self,request:HttpRequest,wishId):
+		wish = get_object_or_404(models.Wishlist,id=wishId)
+		wish.delete()
+		return redirect("store:Wishlist")
 
 
 def addToCart(request:HttpRequest,productId:int):

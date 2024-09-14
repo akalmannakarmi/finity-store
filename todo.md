@@ -158,3 +158,8 @@
 - User
 - Listing
 - Quantity
+
+# Forgot
+- Add add to wish list in product
+- Add Remove from cart button
+- Add User Profile

@@ -25,7 +25,8 @@
 				{% csrf_token %}
 				<label for="bid">Place Bid</label>
 				<input type="number" name="bid" min="193" id="bid" value="193">
-				<button type="submit">Bid</button>
+				<button type="submit" name="bid" value="bid">Bid</button>
+				<button hx-post="{% url 'store:Add to Wishlist' product.Item.id %}" hx-trigger="click" >Add to wishlist</button>
 			</form>
 		{% else %}
 			<form class="space-y-4 py-3" method="post">
@@ -37,6 +38,7 @@
 				<div class="flex space-x-6">
 					<button type="submit" name="action" value="cart" >Add to Cart</button>
 					<button type="submit" name="action" value="buy">Buy</button>
+					<button hx-post="{% url 'store:Add to Wishlist' product.Item.id %}" hx-trigger="click" >Add to wishlist</button>
 				</div>
 			</form>
 		{% endif %}
