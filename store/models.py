@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from basic.models import CustomUser
 from django.db import models
 
 class Item(models.Model):
@@ -46,23 +46,23 @@ class Listing(models.Model):
 	Stock = models.PositiveIntegerField()
 	Listing = models.DateTimeField()
 	Expiration = models.DateTimeField()
-	Seller = models.ForeignKey(User,related_name="Listings",null=True,on_delete=models.SET_NULL)
-	Buyer = models.ForeignKey(User,related_name="Purchases",null=True,on_delete=models.SET_NULL)
+	Seller = models.ForeignKey(CustomUser,related_name="Listings",null=True,on_delete=models.SET_NULL)
+	Buyer = models.ForeignKey(CustomUser,related_name="Purchases",blank=True,null=True,on_delete=models.SET_NULL)
 
 
 class Bid(models.Model):
 	Listing = models.ForeignKey(Listing,related_name="Bids",null=True,on_delete=models.SET_NULL)
-	Bidder = models.ForeignKey(User,related_name="Bids",null=True,on_delete=models.SET_NULL)
+	Bidder = models.ForeignKey(CustomUser,related_name="Bids",null=True,on_delete=models.SET_NULL)
 	Price = models.DecimalField(max_digits=9,decimal_places=4)
 	Time = models.DateTimeField()
 
 
 class Wishlist(models.Model):
-	User = models.ForeignKey(User,related_name="Wishlist",on_delete=models.CASCADE)
+	User = models.ForeignKey(CustomUser,related_name="Wishlist",on_delete=models.CASCADE)
 	Item = models.ForeignKey(Item,related_name="wishlist",on_delete=models.CASCADE)
 	Created = models.DateTimeField(auto_now_add=True)
 
 class Cart(models.Model):
-	User = models.ForeignKey(User,related_name="Cart",on_delete=models.CASCADE)
+	User = models.ForeignKey(CustomUser,related_name="Cart",on_delete=models.CASCADE)
 	Listing = models.ForeignKey(Listing,related_name="Cart",on_delete=models.CASCADE)
 	Quantity = models.PositiveIntegerField()
