@@ -1,16 +1,23 @@
-from django.contrib.auth.forms import UserCreationForm
-from django.http import HttpRequest,HttpResponse
-from django.shortcuts import render,redirect
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView
+from django.views.generic.edit import CreateView
+from .mixins import BaseMixin
+from .forms import CustomUserCreationForm
+from store.models import Listing
 
-def index(request:HttpRequest):
-	return render(request,"index.html",{})
+class IndexView(BaseMixin,TemplateView):
+	template_name = "index.html"
 
-def register(request:HttpRequest):
-	if request.method == "POST":
-		form = UserCreationForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return redirect("login")
-	else:
-		form = UserCreationForm()
-	return render(request,"registration/register.html",{"form":form})
+	def get_context_data(self, **kwargs):
+		mixin_context = super(BaseMixin, self).get_context_data(**kwargs)
+		list_view_context = super(IndexView, self).get_context_data(**kwargs)
+		context = {**mixin_context, **list_view_context}
+		context["featured"] = Listing.objects.all()[:3]
+		context["newest"] = Listing.objects.all()[:3]
+		context["ending"] = Listing.objects.all()[:3]
+		return context
+
+class RegisterView(CreateView):
+	form_class = CustomUserCreationForm
+	template_name = 'registration/register.html'
+	success_url = reverse_lazy('login')
