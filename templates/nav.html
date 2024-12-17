@@ -8,9 +8,25 @@
 			<a href="{% url 'store:Wishlist' %}" {% if page == "wishlist" %} class="navItemSelected" aria-current="page" {% else %} class = "navItem" {% endif %}>WishList</a>
 			<a href="{% url 'store:Cart' %}" {% if page == "cart" %} class="navItemSelected" aria-current="page" {% else %} class = "navItem" {% endif %}>Cart</a>
 		</div>
-		<div class="last">
-			<a href="/profile">
-				<img class="h-8 w-8 rounded-full" src="{% static 'img/profile.jpeg' %}" alt="">
-			</a>
+		<div class="last flex space-x-4 text-white items-center">
+            {% if balance_url %}
+            <div class="balance" hx-get="{{balance_url}}{{request.user.account_no}}" hx-swap="innerHTML" hx-trigger="load every 10s">
+                Loading balance...
+            </div>
+            {% endif %}
+            
+            {% if exchange_url %}
+            <a class="buy more" href="{{exchange_url}}">
+                <button class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Buy More
+                </button>
+            </a>
+            {% endif %}
+
+            <div>
+                <a href="/profile">
+                    <img class="h-8 w-8 rounded-full" src="{% static 'img/profile.jpeg' %}" alt="">
+                </a>
+            </div>
 		</div>
 </nav>

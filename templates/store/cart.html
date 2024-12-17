@@ -24,9 +24,9 @@
 				</div>
 				
 				<div class="count">
-					<span class="left" hx-post="{% url 'store:Decrement Cart' cart.id %}" hx-trigger="click" hx-target="#quantity-{{ cart.id }}" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'> - </span>
+					<span class="left" hx-post="{% url 'store:Decrement Cart' cart.id %}" hx-trigger="click" hx-target="#quantity-{{ cart.id }}" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' hx-on="htmx:afterRequest: window.location.reload()"> - </span>
 					<p id="quantity-{{ cart.id }}" class="px-2">{{cart.Quantity}}</p>
-					<span class="right" hx-post="{% url 'store:Increment Cart' cart.id %}" hx-trigger="click" hx-target="#quantity-{{ cart.id }}" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'> + </span>
+					<span class="right" hx-post="{% url 'store:Increment Cart' cart.id %}" hx-trigger="click" hx-target="#quantity-{{ cart.id }}" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' hx-on="htmx:afterRequest: window.location.reload()"> + </span>
 				</div>
 			</div>
 		</div>
@@ -53,15 +53,17 @@
 		<h4>Total:</h4>
 		<h4>${{totalPrice}} USD</h4>
 	</div>
-	<button class="mt-6 w-full py-1.5">Check out</button>
+    <a href="{% url 'store:checkout' %}">
+	    <button class="mt-6 w-full py-1.5">Check out</button>
+    </a>
 </div>
 {% endblock %}
 
 {% block foot %}
-<script>
+<!-- <script>
 	document.body.addEventListener('htmx:afterRequest', function(event) {
 			// Reload the page after the HTMX request is complete
 			window.location.reload();
 	});
-</script>
+</script> -->
 {% endblock %}
